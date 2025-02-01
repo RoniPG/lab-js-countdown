@@ -44,10 +44,12 @@ function showToast(message) {
   console.log("showToast called!");
 
   // Your code goes here ...
-
-
-
-
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+  
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
   // Your code goes here ...
