@@ -46,12 +46,16 @@ function showToast(message) {
   // Your code goes here ...
   const toast = document.getElementById('toast');
   toast.classList.add('show');
-  setTimeout(() => {
+  const timeoutId = setTimeout(() => {
     toast.classList.remove('show');
   }, 3000);
   
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
   // Your code goes here ...
-
+  document.getElementById('close-toast')
+    .addEventListener('click', () => {
+      clearTimeout(timeoutId);
+      toast.classList.remove('show');
+    });
 }
