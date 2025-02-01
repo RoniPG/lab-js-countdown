@@ -20,6 +20,20 @@ function startCountdown() {
 
 
   // Your code goes here ...
+  document.getElementById('start-btn')
+    .setAttribute("disabled", true);
+
+  timer = setInterval(() => {
+    remainingTime -= 1;
+    document.getElementById('time')
+      .innerText = "";
+    document.getElementById('time')
+      .append(remainingTime);
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      showToast();
+    }
+  }, 1000);
 }
 
 
