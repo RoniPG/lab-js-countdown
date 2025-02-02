@@ -10,7 +10,7 @@ let timer = null; // Variable to store the interval
 document.getElementById('start-btn')
   .addEventListener('click', () => {
     startCountdown();
-  })
+  });
 
 
 
@@ -22,16 +22,17 @@ function startCountdown() {
   // Your code goes here ...
   document.getElementById('start-btn')
     .setAttribute("disabled", true);
-
+  showToast("⏰ Final countdown! ⏰");
   timer = setInterval(() => {
     remainingTime -= 1;
     document.getElementById('time')
       .innerText = "";
     document.getElementById('time')
       .append(remainingTime);
+    if (remainingTime === 5) showToast("Start the engines! 💥");
     if (remainingTime === 0) {
       clearInterval(timer);
-      showToast();
+      showToast("Lift off! 🚀");
     }
   }, 1000);
 }
@@ -46,10 +47,13 @@ function showToast(message) {
   // Your code goes here ...
   const toast = document.getElementById('toast');
   toast.classList.add('show');
+  const toastMessage = document.getElementById('toast-message');
+  toastMessage.innerHTML = '';
+  toastMessage.append(message);
   const timeoutId = setTimeout(() => {
     toast.classList.remove('show');
   }, 3000);
-  
+
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
   // Your code goes here ...
